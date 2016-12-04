@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import Appointments from './Appointments';
 import AddAppoint from './AddAppoint';
+import Search from './Search';
 
 import axios from 'axios';
 const CancelToken = axios.CancelToken;
@@ -12,10 +13,13 @@ class Main extends Component {
         super();
         this.state = {
             appoints: [],
+            orderBy: 'petName',
+            orderDir: 'asc',
             aptBodyVisible: false
         };
         this.handleDelete = this.handleDelete.bind(this);
         this.handleToggleAptBody = this.handleToggleAptBody.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
     }
 
     componentDidMount() {
@@ -57,10 +61,22 @@ class Main extends Component {
         })
     }
 
+    handleAdd(newAppoint) {
+        let {appoints} = this.state;
+        this.setState({
+            appoints: appoints.concat(newAppoint)
+        });
+    }
+
     render() {
         return (
             <div>
-                <AddAppoint toggleAptBody={this.handleToggleAptBody} aptBodyVisible={this.state.aptBodyVisible} />
+                <AddAppoint 
+                    toggleAptBody={this.handleToggleAptBody} 
+                    aptBodyVisible={this.state.aptBodyVisible} 
+                    handleAdd={this.handleAdd}
+                />
+                <Search />
                 <Appointments appoints={this.state.appoints} handleDelete={this.handleDelete}/>
             </div>
         );
