@@ -4,7 +4,7 @@ const AppointList = ({appoint, handleDelete}) => {
     return (
         <div className="row">
             <div className="col-md-1 col-sm-2 col-xs-2">
-                <button type="button" className="btn btn-danger btn-sx" onClick={() => {handleDelete(appoint.petName)}}>
+                <button type="button" className="btn btn-danger btn-sx" onClick={() => {handleDelete(appoint)}}>
                     <span className="glyphicon glyphicon-remove"></span>
                 </button>
             </div>
@@ -20,7 +20,7 @@ const AppointList = ({appoint, handleDelete}) => {
                         {appoint.aptNotes}
                     </div>
                     <div className="panel-footer">
-                        Owner: {appoint.ownerName}
+                        宠物主人: {appoint.ownerName}
                     </div>
                 </div>
             </div>

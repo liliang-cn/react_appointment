@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div className="center">
-            All contents &copy; 2016 <a href="https://github.com/liliang-cn">Li Liang</a>
+            所有内容 &copy; 2016 <a href="https://github.com/liliang-cn">可能不是苹果</a>
         </div>
     );
 };
