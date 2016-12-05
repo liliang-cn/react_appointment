@@ -67,7 +67,10 @@ class Main extends Component {
         // });
         const id = appointSelected._id.$oid;
         axios.delete(`${baseURL}${id}${APIKey}`)
-            .then(() => this.fetchData());
+            .then(() => this.fetchData())
+            .catch(error => {
+                console.log(error);
+            });;
     }
 
     handleToggleAptBody() {
@@ -85,7 +88,10 @@ class Main extends Component {
         .then(() => {
             this.fetchData();
             this.handleToggleAptBody();
-        });
+        })
+        .catch(error => {
+            console.log(error);
+        });;
         
         // this.setState({
         //     appoints: this.state.appoints.concat(newAppoint)
